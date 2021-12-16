@@ -1,0 +1,31 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Hero extends Personnage{
+	
+	private Image imgHero;
+	private ImageIcon icoHero;
+	private boolean saut; //true si le hero saute
+	private int compteurSaut; // durée du saut et hauteur du saut
+	
+	public Hero(int x, int y) {
+		super(x, y, 74, 106);
+		this.icoHero = new ImageIcon(getClass().getResource("/image/heroMarcheDroite.png"));
+		this.imgHero = this.icoHero.getImage();
+		this.saut = false;
+		this.compteurSaut = 0;
+	}
+	
+	//*** GETTERS ***//
+	public Image getImgHero() {return imgHero;}
+
+	public boolean isSaut() {return saut;}
+	
+	//*** SETTERS ***//
+	public void setSaut(boolean saut) {this.saut = saut;}
+	
+	
+}

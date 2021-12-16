@@ -1,0 +1,26 @@
+package com.hakim.objets;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Box extends Objet {
+	
+	private Image imgBox;
+	private ImageIcon icoBox;
+	
+
+	public Box(int x, int y) {
+		
+		super(x, y, 43, 65);
+
+		this.icoBox = new ImageIcon(getClass().getResource("/src/image/chestFermer.png"));
+		this.imgBox = icoBox.getImage();
+	}
+
+
+	public Image getImgChest() {
+		return imgBox;
+	}
+	
+}

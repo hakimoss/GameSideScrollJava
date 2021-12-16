@@ -1,0 +1,21 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Hero extends Personnage{
+	
+	private Image imgHero;
+	private ImageIcon icoHero;
+
+	public Hero(int x, int y) {
+		super(x, y, 102, 163);
+		this.icoHero = new ImageIcon(getClass().getResource("image/heroMarcheDroite.png"));
+		this.imgHero = this.icoHero.getImage();
+	}
+	
+	//*** GETTERS ***//
+	public Image getImgHero() {return imgHero;}
+	
+}

@@ -1,0 +1,17 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Hero extends Personnage{
+	
+	private Image imgHero;
+	private ImageIcon icoHero;
+
+	public Hero(int x, int y, int largeur, int hauteur) {
+		super(x, y, largeur, hauteur);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

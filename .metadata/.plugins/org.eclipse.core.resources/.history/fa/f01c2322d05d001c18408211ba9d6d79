@@ -1,0 +1,16 @@
+package com.hakim.objets;
+
+public class Objet {
+	
+	private int largeur, hauteur;
+	private int x,y;
+	
+	public Objet(int x, int y, int largeur, int hauteur) {
+		
+		this.x = x;
+		this.y = y;
+		this.largeur = largeur;
+		this.hauteur = hauteur;
+		
+	}
+}

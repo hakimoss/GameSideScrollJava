@@ -1,0 +1,110 @@
+package com.hakim.idleClicker;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import java.awt.Image;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+@SuppressWarnings("serial")
+public class Scene extends JPanel {
+	
+	private ImageIcon icoFond;
+	private Image imgFond1;
+	private Image imgFond2;
+	private Image imgStart;
+	
+	private ImageIcon icoPerso;
+	private Image imgPerso;
+	
+	private int xFond1;
+	private int xFond2;
+	private int dx;
+	private int xPos;
+	
+	
+	//******  CONSTRUCTOR  *******//
+	
+	public Scene() {
+		super();
+		
+		
+		this.xFond1 = 0;
+		this.xFond2 = 900;
+		this.dx = 0;
+		this.xPos = -1;
+		icoFond=new ImageIcon(getClass().getResource("/image/backgrounds2.jpg"));
+		this.imgFond1=this.icoFond.getImage();
+		this.imgFond2=this.icoFond.getImage();
+		
+		icoPerso=new ImageIcon(getClass().getResource("/image/perso_idle.png"));
+		this.imgPerso=this.icoPerso.getImage();
+		this.imgStart=this.icoPerso.getImage();
+		this.setFocusable(true);
+		this.requestFocusInWindow();
+		this.addKeyListener(new Clavier());
+		
+		
+		Thread chronoEcran=new Thread(new Chrono());
+		chronoEcran.start();
+		
+	}
+	
+	//******  GETTER  *******//
+	
+	public int getDx() {
+		return dx;
+	}
+	public int getxPos() {
+		return xPos;
+	}
+	
+	//******  SETTER  *******//
+	public void setDx(int dx) {
+		this.dx = dx;
+	}
+	public void setxPos(int xPos) {
+		this.xPos = xPos;
+	}
+	public void setxFond1(int xFond1) {
+		this.xFond1 = xFond1;
+	}
+	public void setxFond2(int xFond2) {
+		this.xFond2 = xFond2;
+	}
+	//******  METHODE  *******//
+	public void deplacementFond() {	
+		
+		if(this.xPos >= 0) {
+			this.xPos = this.xPos + this.dx;
+			this.xFond1 = this.xFond1 - this.dx;	
+			this.xFond2 = this.xFond2 - this.dx;
+		}
+		
+		if(this.xFond1 == -900) {
+			this.xFond1 = 900;
+		} else if(this.xFond2 == -900) {
+			this.xFond2 = 900;
+		} else if(this.xFond1 == 900) {
+			this.xFond1 = -900;
+		} else if(this.xFond2 == 900) {
+			this.xFond2 = -900;
+		}
+		
+		
+		
+	}
+	
+	public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		Graphics g2=(Graphics2D)g;
+		
+		this.deplacementFond();
+		
+		g2.drawImage(this.imgFond1, this.xFond1, 0, null);
+		g2.drawImage(this.imgFond2, this.xFond2, 0, null);
+		g2.drawImage(imgPerso, 0, 170, null);
+		g2
+	}
+}

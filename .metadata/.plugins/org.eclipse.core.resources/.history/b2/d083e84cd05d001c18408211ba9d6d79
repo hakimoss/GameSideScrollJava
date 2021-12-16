@@ -1,0 +1,19 @@
+package com.hakim.objets;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Chest extends Objet {
+	
+	private Image imgChest;
+	private ImageIcon icoChest;
+	
+
+	public Chest(int x, int y, int largeur, int hauteur) {
+		super(x, y, largeur, hauteur);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

@@ -1,0 +1,10 @@
+package com.hakim.personnages;
+
+public class Hero extends Personnage{
+
+	public Hero(int x, int y, int largeur, int hauteur) {
+		super(x, y, largeur, hauteur);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

@@ -1,0 +1,88 @@
+package com.hakim.idleClicker;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import java.awt.Image;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+@SuppressWarnings("serial")
+public class Scene extends JPanel {
+	
+	private ImageIcon icoFond;
+	private Image imgFond1;
+	private Image imgFond2;
+	
+	private ImageIcon icoPerso;
+	private Image imgPerso;
+	
+	private int xFond1;
+	private int xFond2;
+	private int dx;
+	
+	
+	//******  CONSTRUCTOR  *******//
+	
+	public Scene() {
+		super();
+		
+		
+		this.xFond1 = 0;
+		this.xFond2 = 900;
+		this.dx = 0;
+		icoFond=new ImageIcon(getClass().getResource("/image/backgrounds2.jpg"));
+		this.imgFond1=this.icoFond.getImage();
+		this.imgFond2=this.icoFond.getImage();
+		icoPerso=new ImageIcon(getClass().getResource("/image/perso_idle.png"));
+		this.imgPerso=this.icoPerso.getImage();
+		
+		this.setFocusable(true);
+		this.requestFocusInWindow();
+		this.addKeyListener(new Clavier());
+		
+		
+		Thread chronoEcran=new Thread(new Chrono());
+		chronoEcran.start();
+		
+	}
+	
+	//******  GETTER-SETTER  *******//
+	
+	public int getDx() {
+		return dx;
+	}
+	public void setDx(int dx) {
+		this.dx = dx;
+	}
+
+	//******  METHODE  *******//
+	public void deplacementFond() {		
+		this.xFond1 = this.xFond1 - this.dx;	
+		this.xFond2 = this.xFond2 - this.dx;
+		
+		if(this.xFond1 == -900) {
+			this.xFond1 = 900;
+		} else if(this.xFond2 == -900) {
+			this.xFond2 = 900;
+		}
+		
+		if(this.xFond1 == 900) {
+			this.xFond1 = -900;
+		} else if(this.xFond2 == 900) {
+			this.xFond2 = -900;
+		}
+		
+	}
+	
+	public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		Graphics g2=(Graphics2D)g;
+		
+		this.deplacementFond();
+		
+		g2.drawImage(this.imgFond1, this.xFond1, 0, null);
+		g2.drawImage(this.imgFond2, this.xFond2, 0, null);
+		g2.drawImage(imgPerso, 0, 170, null);
+	}
+}
