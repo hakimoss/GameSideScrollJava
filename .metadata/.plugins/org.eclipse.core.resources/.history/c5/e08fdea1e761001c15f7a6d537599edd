@@ -1,0 +1,6 @@
+package com.hakim.affichage;
+
+public class Score {
+	
+	private final int NB_TOTAL_PIECES = 10;
+}

@@ -51,13 +51,16 @@ public class Voleur extends Personnage implements Runnable{
 		}
 		
 		while(true) {
-			this.bouge();
-			try {
-				Thread.sleep(PAUSE);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if(this.vivant == true) {
+				this.bouge();
+				try {
+					Thread.sleep(PAUSE);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
+		
 		}
 		
 		
@@ -81,6 +84,23 @@ public class Voleur extends Personnage implements Runnable{
 			super.setVersDroite(true);
 			this.dxVoleur = 1;
 		}
+	}
+	
+	public Image meurt() {
+		String str;
+		Image img;
+		ImageIcon ico;
+	
+		if(this.isVersDroite() == true ) {
+			str = "/image/voleurMeurtDroite.png";
+		} else {
+			str = "/image/voleurMeurtGauche.png";
+		}
+		
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		
+		return img;
 	}
 	
 	

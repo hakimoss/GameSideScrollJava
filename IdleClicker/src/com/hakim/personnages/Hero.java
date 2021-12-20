@@ -71,29 +71,7 @@ public class Hero extends Personnage{
 		return img;
 	}
 
-	public void contact(Objet objet) {
-		//contact horizontal
-		if((super.contactAvant(objet) == true && this.isVersDroite() == true) || (super.contactArriere(objet) == true && this.isVersDroite() == false)) {
-			Main.scene.setDx(0);
-			this.setMarche(false);
-		}
-		// contact avec un objet en dessous
-		if(super.contactDessous(objet) == true && this.saut == true) {
-			Main.scene.setySol(0);
-			this.setMarche(false);
-		} else if(super.contactDessous(objet) == false) {
-			Main.scene.setySol(326);
-			if(this.saut == false) {
-				this.setY(220);
-			}
-		}
-		//contact avec un objet au-dessus
-		if(super.contactDessus(objet) == true) {
-			Main.scene.setHauteurPlafond(objet.getY() + objet.getHauteur());	
-		} else if(super.contactDessus(objet) == false && this.saut == false) {
-			Main.scene.setHauteurPlafond(0);
-		}
-	}
+
 	
 	public Image saute() {
 		
@@ -139,6 +117,29 @@ public class Hero extends Personnage{
 		
 	}
 	
+	public void contact(Objet objet) {
+		//contact horizontal
+		if((super.contactAvant(objet) == true && this.isVersDroite() == true) || (super.contactArriere(objet) == true && this.isVersDroite() == false)) {
+			Main.scene.setDx(0);
+			this.setMarche(false);
+		}
+		// contact avec un objet en dessous
+		if(super.contactDessous(objet) == true && this.saut == true) {
+			Main.scene.setySol(0);
+			this.setMarche(false);
+		} else if(super.contactDessous(objet) == false) {
+			Main.scene.setySol(326);
+			if(this.saut == false) {
+				this.setY(220);
+			}
+		}
+		//contact avec un objet au-dessus
+		if(super.contactDessus(objet) == true) {
+			Main.scene.setHauteurPlafond(objet.getY() + objet.getHauteur());	
+		} else if(super.contactDessus(objet) == false && this.saut == false) {
+			Main.scene.setHauteurPlafond(0);
+		}
+	}
 	
 	public boolean contactPiece(Piece piece) {
 		
@@ -147,5 +148,30 @@ public class Hero extends Personnage{
 		} else {
 			return false;
 		}
+	}
+	
+	public void contact(Personnage personnage) {
+		if(super.contactAvant(personnage) == true || super.contactArriere(personnage) ==  true ) {
+			this.setMarche(false);
+			this.setVivant(false);
+		} else if (super.contactDessous(personnage) == true) {
+			personnage.setMarche(false);
+			personnage.setVivant(false);
+		}
+	}
+	
+	public Image meurt() {
+		String str;
+		ImageIcon ico;
+		Image img;
+		
+		if(this.versDroite == true) {
+			str = "/image/heroMeurtDroite.png";
+		} else {
+			str = "/image/heroMeurtGauche.png";
+		}
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		return img;
 	}
 }

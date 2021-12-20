@@ -54,13 +54,16 @@ public class Civil extends Personnage implements Runnable {
 		}
 		
 		while(true) {
-			try {
+			if(this.vivant == true) {
 				this.bouge();
-				Thread.sleep(PAUSE);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				try {
+					Thread.sleep(PAUSE);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
+			
 		}
 		
 		
@@ -84,6 +87,23 @@ public class Civil extends Personnage implements Runnable {
 			super.setVersDroite(true);
 			this.dxCivil = 1;
 		}
+	}
+	
+	public Image meurt() {
+		String str;
+		Image img;
+		ImageIcon ico;
+	
+		if(this.isVersDroite() == true ) {
+			str = "/image/civilMeurtDroite.png";
+		} else {
+			str = "/image/civilMeurtGauche.png";
+		}
+		
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		
+		return img;
 	}
 
 }
