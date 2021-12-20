@@ -1,0 +1,10 @@
+package com.hakim.personnages;
+
+public class Civil extends Personnage {
+
+	public Civil(int x, int y) {
+		super(x, y, 57, 107);
+		// TODO Auto-generated constructor stub
+	}
+
+}

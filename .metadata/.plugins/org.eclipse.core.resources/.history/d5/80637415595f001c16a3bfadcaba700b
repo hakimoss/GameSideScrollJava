@@ -1,0 +1,10 @@
+package com.hakim.personnages;
+
+public class Monstre extends Personnage {
+
+	public Monstre(int x, int y) {
+		super(x, y, 66, 103);
+		// TODO Auto-generated constructor stub
+	}
+
+}

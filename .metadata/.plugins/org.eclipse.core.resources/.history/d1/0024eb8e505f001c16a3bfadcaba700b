@@ -1,0 +1,13 @@
+package com.hakim.objets;
+
+import javax.swing.ImageIcon;
+
+public class Piece extends Objet {
+
+	public Piece(int x, int y) {
+		super(x, y, 43, 42);
+
+		super.icoObjet = new ImageIcon(getClass().getResource("/image/piece1.png"));
+	}
+
+}

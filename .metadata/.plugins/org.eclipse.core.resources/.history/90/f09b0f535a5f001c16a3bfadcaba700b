@@ -1,0 +1,24 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Voleur extends Personnage{
+	
+	private Image imgVoleur;
+	private ImageIcon icoVoleur;
+
+	public Voleur(int x, int y) {
+		super(x, y, 66, 103);
+		super.setVersDroite(true);
+		super.setMarche(true);
+		
+		icoVoleur = new ImageIcon(getClass().getResource("/image/voleurArretDroite.png"));
+		imgVoleur = icoVoleur.getImage();
+	}
+
+	//   GETTERS   //
+	public Image getImgVoleur() {return imgVoleur;}
+
+}

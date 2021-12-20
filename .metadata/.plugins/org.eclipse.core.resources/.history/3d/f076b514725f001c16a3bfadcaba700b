@@ -1,0 +1,17 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Civil extends Personnage {
+
+	private Image imgCivil;
+	private ImageIcon icoCivil;
+	
+	public Civil(int x, int y) {
+		super(x, y, 57, 107);
+		// TODO Auto-generated constructor stub
+	}
+
+}

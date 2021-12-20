@@ -1,0 +1,31 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Civil extends Personnage implements Runnable {
+
+	private Image imgCivil;
+	private ImageIcon icoCivil;
+	
+	public Civil(int x, int y) {
+		super(x, y, 57, 107);
+		
+		super.setVersDroite(true);
+		super.setMarche(true);
+		
+		this.icoCivil = new ImageIcon(getClass().getResource("/image/civilArretDroite.png"));
+		this.imgCivil = this.icoCivil.getImage();
+		
+		Thread chronoCivil = new Thread(this);
+		chronoCivil.start();
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

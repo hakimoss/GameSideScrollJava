@@ -1,0 +1,25 @@
+package com.hakim.objets;
+
+import javax.swing.ImageIcon;
+import java.awt.Image;
+
+public class Piece extends Objet {
+	
+	private int compteur;
+
+	public Piece(int x, int y) {
+		super(x, y, 43, 42);
+
+		super.icoObjet = new ImageIcon(getClass().getResource("/image/piece1.png"));
+		super.imgObjet = super.icoObjet.getImage();
+	
+	}
+	
+	
+	//   METHODE   //
+	
+	public Image bouge() {
+		
+	}
+
+}

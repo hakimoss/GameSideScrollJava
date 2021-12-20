@@ -1,0 +1,13 @@
+package com.hakim.personnages;
+
+public class Monstre extends Personnage {
+	
+	private Image imgMonstre;
+	private IconImage icoMonstre;
+	
+	
+	public Monstre(int x, int y) {
+		super(x, y, 66, 103);
+	}
+
+}

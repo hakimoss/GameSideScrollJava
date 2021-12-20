@@ -21,9 +21,17 @@ public class Clavier implements KeyListener {
 			Main.scene.hero.setVersDroite(true);
 			Main.scene.setDx(1);
 		} else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			
+			if(Main.scene.getxPos() == 2701) {
+				Main.scene.setxPos(2700);
+				Main.scene.setxFond1(0);
+				Main.scene.setxFond2(-900);
+			}
+			
 			Main.scene.hero.setMarche(true);
 			Main.scene.hero.setVersDroite(false);
 			Main.scene.setDx(-1);
+	
 		}
 		// hero saute
 		if(e.getKeyCode() == KeyEvent.VK_SPACE) {

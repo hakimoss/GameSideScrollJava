@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="com.hakim.personnages.Hero"/>
+    <fullyQualifiedTypeName name="com.hakim.objets.Box"/>
+    <fullyQualifiedTypeName name="com.hakim.objets.Chest"/>
+    <fullyQualifiedTypeName name="com.hakim.idleClicker.Main"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.hakim.objets.Piece"/>
+    <fullyQualifiedTypeName name="com.hakim.personnages.Voleur"/>
+    <fullyQualifiedTypeName name="com.hakim.objets.Objet"/>
     <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
+    <fullyQualifiedTypeName name="com.hakim.personnages.Civil"/>
 </qualifiedTypeNameHistroy>

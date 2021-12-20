@@ -1,0 +1,11 @@
+package com.hakim.personnages;
+
+public class Voleur extends Personnage{
+
+	public Voleur(int x, int y) {
+		super(x, y, 66, 103);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

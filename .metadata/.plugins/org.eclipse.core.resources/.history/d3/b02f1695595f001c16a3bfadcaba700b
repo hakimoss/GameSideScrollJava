@@ -1,0 +1,29 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Monstre extends Personnage {
+	
+	private Image imgMonstre;
+	private ImageIcon icoMonstre;
+	
+	
+	public Monstre(int x, int y) {
+		super(x, y, 66, 103);
+		super.setVersDroite(true);
+		super.setMarche(true);
+		
+		this.icoMonstre = new ImageIcon(getClass().getResource("/image/monstreArretDroite"));
+		this.imgMonstre = icoMonstre.getImage();
+	}
+
+
+	
+	//   GETTERS   //
+	public Image getImgMonstre() {return imgMonstre;}
+
+	
+	
+}

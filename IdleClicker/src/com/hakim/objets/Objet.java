@@ -1,11 +1,16 @@
 package com.hakim.objets;
 
 import com.hakim.idleClicker.Main;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 
 public class Objet {
 	
 	private int largeur, hauteur;
 	private int x,y;
+	protected Image imgObjet;
+	protected ImageIcon icoObjet;
 	
 	public Objet(int x, int y, int largeur, int hauteur) {
 		
@@ -23,6 +28,8 @@ public class Objet {
 	public int getX() {return x;}
 
 	public int getY() {return y;}
+
+	public Image getImgObjet() {return imgObjet;}
 
 	//*** SETTERS ***//
 	public void setLargeur(int largeur) {this.largeur = largeur;}

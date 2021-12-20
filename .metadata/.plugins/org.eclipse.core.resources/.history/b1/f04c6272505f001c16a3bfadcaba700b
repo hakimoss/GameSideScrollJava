@@ -1,0 +1,10 @@
+package com.hakim.objets;
+
+public class Piece extends Objet {
+
+	public Piece(int x, int y) {
+		super(x, y, 43, 42);
+		// TODO Auto-generated constructor stub
+	}
+
+}

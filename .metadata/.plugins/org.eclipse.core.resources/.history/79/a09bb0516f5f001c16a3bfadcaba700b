@@ -1,0 +1,59 @@
+package com.hakim.personnages;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Voleur extends Personnage implements Runnable{
+	
+	private Image imgVoleur;
+	private ImageIcon icoVoleur;
+
+	private final int PAUSE = 15;
+	private int dxVoleur;
+
+	public Voleur(int x, int y) {
+		super(x, y, 66, 103);
+		super.setVersDroite(true);
+		super.setMarche(true);
+		this.dxVoleur = 1;
+		
+		icoVoleur = new ImageIcon(getClass().getResource("/image/voleurArretDroite.png"));
+		imgVoleur = icoVoleur.getImage();
+		
+		Thread chronoVoleur = new Thread(this);
+		chronoVoleur.start();
+	}
+
+	//   GETTERS   //
+	public Image getImgVoleur() {return imgVoleur;}
+
+
+	//   METHODE   //
+	public void bouge() {
+		System.out.println("dans la fonction bouge()");
+		if(super.isVersDroite() ==  true) {
+			System.out.println("voleur 1");
+			this.dxVoleur = 1;
+		} else {
+			this.dxVoleur = -1;
+		}
+		super.setX(super.getX() + this.dxVoleur);
+	}
+	
+	@Override
+	public void run() {
+		System.out.println("dans la fonction run()");
+		this.bouge();
+		try {
+			System.out.println("dans la fonction run()-try");
+			Thread.sleep(PAUSE);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}
+
