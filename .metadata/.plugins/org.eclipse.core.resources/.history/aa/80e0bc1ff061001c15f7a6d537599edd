@@ -15,7 +15,6 @@ public class Hero extends Personnage{
 	private ImageIcon icoHero;
 	private boolean saut; //true si le hero saute
 	private int compteurSaut; // durée du saut et hauteur du saut
-	private int compteurMort;
 	
 	public Hero(int x, int y) {
 		super(x, y, 74, 106);
@@ -23,7 +22,6 @@ public class Hero extends Personnage{
 		this.imgHero = this.icoHero.getImage();
 		this.saut = false;
 		this.compteurSaut = 0;
-		this.compteurMort = 0;
 	}
 	
 	//*** GETTERS ***//
@@ -168,20 +166,13 @@ public class Hero extends Personnage{
 		ImageIcon ico;
 		Image img;
 		
-		if(this.compteurMort == 0) {
-			Audio.playSound("/audio/ecrase.wav");
-		}
-		if(this.compteurMort == 100) {
-			Audio.playSound("/audio/lose.wav");
-		}
-		this.compteurMort++;
-
 		if(this.versDroite == true) {
 			str = "/image/heroMeurtDroite.png";
+			Audio.playSound("/audio/ecrase.wav");
 		} else {
 			str = "/image/heroMeurtGauche.png";
+			Audio.playSound("/audio/ecrase.wav");
 		}
-	
 		
 		ico = new ImageIcon(getClass().getResource(str));
 		img = ico.getImage();

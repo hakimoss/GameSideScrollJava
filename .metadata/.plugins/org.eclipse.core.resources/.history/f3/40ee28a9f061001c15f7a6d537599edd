@@ -38,7 +38,6 @@ public class Scene extends JPanel {
 	private int xPos;   // position dans le jeu
 	private int ySol;   // hauteur du sol
 	private int hauteurPlafond;    // hauteur du plafond
-	private boolean ok;
 	
 	public Hero hero;
 	
@@ -67,7 +66,6 @@ public class Scene extends JPanel {
 		this.xPos = -1;
 		this.ySol = 326;
 		this.hauteurPlafond = 0;
-		this.ok = true;
 		
 		icoFond=new ImageIcon(getClass().getResource("/image/backgrounds2.jpg"));
 		this.imgFond1=this.icoFond.getImage();
@@ -207,11 +205,7 @@ public class Scene extends JPanel {
 	}
 	
 	private boolean partieGagnee() {
-		if(this.compteARebours.getCompteurTemps() > 0 && this.hero.isVivant() == true && this.score.getNbPieces() == 8 && this.xPos > 2700) {
-			if(this.ok == true) {
-				Audio.playSound("/audio/win.wav");
-				this.ok = false;
-			}
+		if(this.compteARebours.getCompteurTemps() > 0 && this.hero.isVivant() == true && this.score.getNbPieces() == 10 && this.xPos > 2700) {
 			return true;
 		} else {
 			return false;
@@ -394,7 +388,7 @@ public class Scene extends JPanel {
 		
 		
 		}
-		System.out.println(this.xPos);
+		
 		//mise a jour du score
 		g2.setFont(police);
 		g2.drawString(this.score.getNbPieces() + " pièce(s) trouvée(s) sur " + this.score.getNB_TOTAL_PIECES(), 660, 25);

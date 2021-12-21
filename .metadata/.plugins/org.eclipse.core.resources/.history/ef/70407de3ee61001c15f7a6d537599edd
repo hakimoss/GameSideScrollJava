@@ -3,8 +3,6 @@ package com.hakim.idleClicker;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import com.hakim.audio.Audio;
-
 public class Clavier implements KeyListener {
 
 	
@@ -38,7 +36,6 @@ public class Clavier implements KeyListener {
 			// hero saute
 			if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 				Main.scene.hero.setSaut(true);
-				Audio.playSound("/audio/jump.wav");
 			}
 		
 		}

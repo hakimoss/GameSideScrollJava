@@ -38,7 +38,7 @@ public class Clavier implements KeyListener {
 			// hero saute
 			if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 				Main.scene.hero.setSaut(true);
-				Audio.playSound("/audio/jump.wav");
+				Audio.playSound("/audio/saut.wav");
 			}
 		
 		}

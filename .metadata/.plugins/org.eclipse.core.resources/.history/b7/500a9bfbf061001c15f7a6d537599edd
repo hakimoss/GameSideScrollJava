@@ -207,11 +207,7 @@ public class Scene extends JPanel {
 	}
 	
 	private boolean partieGagnee() {
-		if(this.compteARebours.getCompteurTemps() > 0 && this.hero.isVivant() == true && this.score.getNbPieces() == 8 && this.xPos > 2700) {
-			if(this.ok == true) {
-				Audio.playSound("/audio/win.wav");
-				this.ok = false;
-			}
+		if(this.compteARebours.getCompteurTemps() > 0 && this.hero.isVivant() == true && this.score.getNbPieces() == 10 && this.xPos > 2700) {
 			return true;
 		} else {
 			return false;
@@ -220,6 +216,10 @@ public class Scene extends JPanel {
 	
 	private boolean partiePerdu() {
 		if(this.hero.isVivant() == false || this.compteARebours.getCompteurTemps() <= 0) {
+			if(this.ok == true) {
+				Audio.playSound("/audio/win.wav");
+				this.ok = false;
+			}
 			return true;
 		} else {
 			return false;
@@ -394,7 +394,7 @@ public class Scene extends JPanel {
 		
 		
 		}
-		System.out.println(this.xPos);
+		
 		//mise a jour du score
 		g2.setFont(police);
 		g2.drawString(this.score.getNbPieces() + " pièce(s) trouvée(s) sur " + this.score.getNB_TOTAL_PIECES(), 660, 25);

@@ -1,0 +1,26 @@
+package com.hakim.audio;
+
+import java.io.IOException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+public class Audio {
+	
+	private Clip clip;
+	
+	public Audio(String son) {
+		
+		try {
+			AudioInputStream audio = AudioSystem.getAudioInputStream(getClass().getResource(son));
+			clip = AudioSystem.getClip();
+			clip.open(audio);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

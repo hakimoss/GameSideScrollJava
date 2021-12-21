@@ -168,14 +168,6 @@ public class Hero extends Personnage{
 		ImageIcon ico;
 		Image img;
 		
-		if(this.compteurMort == 0) {
-			Audio.playSound("/audio/ecrase.wav");
-		}
-		if(this.compteurMort == 100) {
-			Audio.playSound("/audio/lose.wav");
-		}
-		this.compteurMort++;
-
 		if(this.versDroite == true) {
 			str = "/image/heroMeurtDroite.png";
 		} else {

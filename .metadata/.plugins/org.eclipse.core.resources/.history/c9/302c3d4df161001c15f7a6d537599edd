@@ -207,7 +207,7 @@ public class Scene extends JPanel {
 	}
 	
 	private boolean partieGagnee() {
-		if(this.compteARebours.getCompteurTemps() > 0 && this.hero.isVivant() == true && this.score.getNbPieces() == 8 && this.xPos > 2700) {
+		if(this.compteARebours.getCompteurTemps() > 0 && this.hero.isVivant() == true && this.score.getNbPieces() == 10 && this.xPos > 2700) {
 			if(this.ok == true) {
 				Audio.playSound("/audio/win.wav");
 				this.ok = false;
